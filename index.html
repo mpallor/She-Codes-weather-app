@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Weather forecast</title>
+    <link rel="stylesheet" href="src/styles.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+      <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=PT+Mono&family=Poppins:wght@200;500&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    </head>
+  <body>
+    <div class="container border p-3 mt-2">
+      <div class="row mt-2">
+        <h1 class="heading">Weather forecast</h1>
+        <br />
+      </div>
+      <div class="row mt-3">
+        <div class="col">
+          
+        </div>
+        <div class="col-5 search-field">
+          <nav class="navbar bg-light">
+            <div class="container-fluid">
+              <form class="d-flex" role="search" id="search-form">
+                <input
+                  class="form-control me-3"
+                  type="search"
+                  id="input-city"
+                  placeholder="Enter location        | ⌖"
+                  aria-label="Search"
+                />
+                <button class="btn btn-outline-success" id = "search-button" type="submit">
+                  Search
+                </button>
+                <br><br><button id="current-location-button">
+      Current
+      </button>
+              </form>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <div class="container p-2 mt-3 border">
+      <div class="row">
+        <div class="col-2">
+          <h1 class="heading">Today</h1>
+        </div>
+        <div class="col-1">
+          <h2 class="city" id="today-city">Krakow</h2>
+        </div>
+        <div class="col-7">
+          <h2 class="city"></h2>
+        </div>
+        
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <div class="card" style="width: 18rem">
+            <div class="card-body">
+              <h5 class="card-title" id="day-time">
+                Current weather 16:30</h5>
+             
+              <h6 class="card-subtitle mb-2 text-muted">Sunny</h6>
+              <span class="sun" id="emoji-sun">☀️ </span>
+              <span class="temperature" id="tempToday">19</span>
+              <span class = "units">
+                <a href="#" id="celsius-link">℃</a> |
+                <a href ="#" id="fahrenheit-link">℉</a>
+              </span>
+              <a href="#" class="card-link">⌄</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <ul class="list-group">
+            <li
+              class="list-group-item d-flex justify-content-between align-items-center"
+            >
+              Precipitation
+              <span class="badge bg-primary rounded-pill">0.0 mm</span>
+            </li>
+            <li
+              class="list-group-item d-flex justify-content-between align-items-center"
+            >
+              Wind
+              <span class="badge bg-primary rounded-pill">14 km/h</span>
+            </li>
+            <li
+              class="list-group-item d-flex justify-content-between align-items-center"
+            >
+              Pressure
+              <span class="badge bg-primary rounded-pill">↔ 1010 mb</span>
+            </li>
+          </ul>
+        </div>
+        <div class="col-4">
+          <ul class="list-group">
+            <li
+              class="list-group-item d-flex justify-content-between align-items-center"
+            >
+              Air quality
+              <span class="badge bg-primary rounded-pill">Fair</span>
+            </li>
+            <li
+              class="list-group-item d-flex justify-content-between align-items-center"
+            >
+              Humidity
+              <span class="badge bg-primary rounded-pill">31%</span>
+            </li>
+            <li
+              class="list-group-item d-flex justify-content-between align-items-center"
+            >
+              More details
+              <span class="badge bg-primary rounded-pill">
+                <a href="??" target="_blank" class="more-link"> ></a>
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="container p-2 mt-3 border">
+      <div class="row">
+        <div class="col-2">
+          <h1 class="heading">Next days</h1>
+        </div>
+        <div class="col-1">
+          <h2 class="city changeCity" id="next-week-city">Krakow</h2>
+        </div>
+        <div class="col-7">
+          <h2 class="city"></h2>
+        </div>
+        
+        <div class="row p-2 mt-3">
+    <div class="col">
+      <strong>Today</strong>
+      <p>18℃</p>
+      🌦
+    </div>
+    <div class="col">
+      <strong>Tommorow</strong>
+      <p>21℃</p>
+      ⛅️
+    </div>
+    <div class="col">
+      <strong>Sun.17.07</strong>
+      <p>26℃</p>
+      ☀️
+    </div>
+    <div class="col">
+      <strong>Mon.18.07</strong>
+      <p>25℃</p>
+      🌤
+    </div>
+    <div class="col">
+      <strong>Tue.19.07</strong>
+      <p>17℃</p>
+      ☁️
+    </div>
+    <div class="col">
+      <strong>Wed.20.07</strong>
+      <p>21℃</p>
+      🌦
+    </div>
+    <div class="col">
+      <strong>Thu.21.07</strong>
+      <p>21℃</p>
+      🌦
+    </div>
+    <div class="col">
+      <br>
+      <a href="??" target="_blank" class="next-week-link"><strong>></strong></a>
+      
+    </div>
+  </div>
+  </div>
+    
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+  <script src="src/app.js">
+</script>
+    
+  </body>
+</html>
