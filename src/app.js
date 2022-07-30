@@ -45,8 +45,7 @@ function displayWeather(response) {
 
 function searchCity(city) {
   let apiKey = "c6250be52ad7bd4f277e12656c8e390e";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
-  let unit = "metric";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
   axios.get(apiUrl).then(displayWeather);
 }
@@ -99,17 +98,4 @@ newDate.innerHTML = currentDateAndTime();
 let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
-//function displayCity(event) {
-//event.preventDefault();
-//let searchInput = document.querySelector("#enter-city");
-
-//let cityToday = document.querySelector("#today-city");
-// cityToday.innerHTML = `${searchInput.value}`;
-
-//let cityNextWeek = document.querySelector("#next-week-city");
-//cityNextWeek.innerHTML = `${searchInput.value}`;
-//}
-
-//let form = document.querySelector("#search-form");
-//form.addEventListener("submit", displayCity);
-searchCity("Toronto");
+searchCity("Krakow");
